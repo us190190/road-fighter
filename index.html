@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Road Fighter</title>
+		<link rel="stylesheet" type="text/css" href="./trace.css">
+		<script type="text/javascript" src="./trace.js"></script>
+		<script type="text/javascript" src="./input.js"></script>				
+		<script type="text/javascript" src="./RoadFighter.js"></script>
+
+		<script type="text/javascript">
+			var C2D, W, H, RF;
+			var fps = 24;
+			var mspf = 1000 / fps;
+			var updateInterval;
+			var quit = false;
+			
+			function main() {
+				var c = document.getElementById('canvas');
+				if (c.getContext) {
+					initializeCanvas(c);									
+					RF = new RoadFighter(C2D, W, H, 4, input);			
+					trace('====== ROAD FIGHTER ===========');
+					trace("  \'a\' - turn left");
+					trace("  \'d\' - turn right");
+					trace("  \'w\' - accelerate");
+					trace("  \'s\' - decelerate");
+					trace("  \'q\' - quit");
+					updateInterval = window.setInterval("update()", mspf);			
+				}
+				
+				else {
+					trace('sorry.. you\'ll need a browser that supports the canvas tag,');
+					trace('like Safari or Firefox 1.5+ to see this demo.');
+				}
+			}
+			
+			function initializeCanvas(c) {
+					C2D = c.getContext('2d');
+					C2D.lineWidth = 1;
+					C2D.globalAlpha = 1;
+					C2D.globalCompositeOperation = 'source-over';
+					W = c.width;
+					H = c.height;
+					//trace('Game canvas initialized');
+			}	
+			
+			function update() {		
+				if (input.quit) {
+					input.quit = false;
+					window.clearInterval(updateInterval);
+					trace('RoadFighter halted.');
+				}
+				else {
+					RF.update();
+				}
+			}
+		</script>
+
+		<style type="text/css">
+			#game_play_screen{
+				width: 950px;
+				height: 450px;
+				padding: 10px;
+				margin-left: 200px;
+			}
+			canvas {
+				left: 33%;
+				margin-left: 10px;
+			}
+			.window, .screen {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body onload="main();" onkeydown="press(event);" onkeyup="release(event);">
+		<div id="game_play_screen">
+			<div id="trace" class="window">
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+			<div id="screen">
+				<canvas id="canvas" width="500" height="400"></canvas>
+			</div>
+		</div>
+		
+	</body>
+</html>

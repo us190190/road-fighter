@@ -1,0 +1,1 @@
+.window {	z-index: 10;	/*position: absolute;*/	left: 10px;	/*top: 10px;*/	width: 30%;	color: #dd4814;	background-color: #ebebeb;	opacity: .80;	border: 2px solid #d5d1cd;	font-family: "Lucida Console", "Monaco", "Courier New", Courier, mono;	font-size: small;	padding: 11px;}ul {	margin: 0px;	padding: 0px;}li {	list-style-type: none;}
