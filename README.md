@@ -1,4 +1,1 @@
-Details on :
-
-
-http://us190190.github.io/RoadFighter/
+Play on http://us190190.github.io/Game-RoadFighter/
