@@ -14,4 +14,4 @@ Revisit the classic video game "Road Fighter" in this JavaScript implementation.
 - Avoid obstacles and other vehicles.
 
 ## Play Online
-https://us190190.github.io/game-road-fighter/
+https://us190190.github.io/road-fighter/
